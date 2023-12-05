@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // Para la función find
+#include <algorithm> // Per a la funció find
 
 using namespace std;
 
-// Declaración de funciones
+// Declaració de funcions
 char menu();
 void entrar_objecte(vector<string>& inventari);
 void eliminar_objecte(vector<string>& inventari);
@@ -13,7 +13,7 @@ void llistar_elements(const vector<string>& inventari);
 void buscar_element(const vector<string>& inventari);
 
 int main() {
-    // Inicialización del inventario como un vector de strings
+    // Inicialització de l'inventari com a vector de strings
     vector<string> inventari;
 
     // Menú principal
@@ -21,7 +21,7 @@ int main() {
     do {
         opcio = menu();
 
-        // Ejecutar la opción seleccionada
+        // Executar l'opció seleccionada
         switch (opcio) {
         case '1':
             entrar_objecte(inventari);
@@ -39,14 +39,14 @@ int main() {
             buscar_element(inventari);
             break;
         case '6':
-            inventari.clear(); // Borrar todos los elementos del inventario
+            inventari.clear(); // Buidar tots els elements de l'inventari
             cout << "L'inventari ha estat buidat.\n";
             break;
         case '7':
             cout << "Adeu!\n";
             break;
         default:
-            cout << "Opcio no valida. Torna a intentar.\n";
+            cout << "Opció no vàlida. Torna a intentar.\n";
         }
 
     } while (opcio != '7');
@@ -54,9 +54,9 @@ int main() {
     return 0;
 }
 
-// Función para mostrar el menú y obtener la opción del usuario
+// Funció per mostrar el menú i obtenir l'opció de l'usuari
 char menu() {
-    // Mostrar opciones del menú
+    // Mostrar opcions del menú
     char opcio;
     cout << "\nMenu:\n";
     cout << "1. Entrar objecte a l'inventari\n";
@@ -66,14 +66,14 @@ char menu() {
     cout << "5. Buscar un element a l'inventari\n";
     cout << "6. Buidar tot l'inventari\n";
     cout << "7. Sortir\n";
-    cout << "Selecciona una opcio (1-7): ";
+    cout << "Selecciona una opció (1-7): ";
     cin >> opcio;
     return opcio;
 }
 
-// Función para añadir un objeto al inventario
+// Funció per afegir un objecte a l'inventari
 void entrar_objecte(vector<string>& inventari) {
-    // Pedir y añadir un objeto al inventario
+    // Demanar i afegir un objecte a l'inventari
     string nou_objecte;
     cout << "Entra el nom de l'objecte: ";
     cin >> nou_objecte;
@@ -81,19 +81,19 @@ void entrar_objecte(vector<string>& inventari) {
     cout << nou_objecte << " ha estat afegit a l'inventari.\n";
 }
 
-// Función para eliminar un objeto del inventario
+// Funció per eliminar un objecte de l'inventari
 void eliminar_objecte(vector<string>& inventari) {
     if (!inventari.empty()) {
-        // Pedir y eliminar un objeto del inventario
+        // Demanar i eliminar un objecte de l'inventari
         cout << "Entra el nom de l'objecte a eliminar: ";
         string nom_objecte;
         cin >> nom_objecte;
 
-        // Utilizar la función find para buscar el elemento
+        // Utilitzar la funció find per buscar l'element
         auto it = find(inventari.begin(), inventari.end(), nom_objecte);
 
         if (it != inventari.end()) {
-            inventari.erase(it); // Borrar el elemento encontrado
+            inventari.erase(it); // Eliminar l'element trobat
             cout << nom_objecte << " ha estat eliminat de l'inventari.\n";
         }
         else {
@@ -101,13 +101,13 @@ void eliminar_objecte(vector<string>& inventari) {
         }
     }
     else {
-        cout << "L'inventari esta buit. No es pot eliminar cap objecte.\n";
+        cout << "L'inventari està buit. No es pot eliminar cap objecte.\n";
     }
 }
 
-// Función para añadir una cantidad determinada de objetos al inventario
+// Funció per afegir una quantitat determinada d'objectes a l'inventari
 void entra_num_objectes(vector<string>& inventari) {
-    // Pedir cantidad y añadirla al inventario
+    // Demanar quantitat i afegir-la a l'inventari
     int num_objectes;
     cout << "Entra el nombre d'objectes que vols afegir:";
     cin >> num_objectes;
@@ -117,7 +117,7 @@ void entra_num_objectes(vector<string>& inventari) {
     }
 }
 
-// Función para listar los elementos del inventario
+// Funció per llistar els elements de l'inventari
 void llistar_elements(const vector<string>& inventari) {
     cout << "\nInventari de l'heroi:\n";
     for (const auto& element : inventari) {
@@ -125,15 +125,15 @@ void llistar_elements(const vector<string>& inventari) {
     }
 }
 
-// Función para buscar un elemento en el inventario
+// Funció per buscar un element a l'inventari
 void buscar_element(const vector<string>& inventari) {
     if (!inventari.empty()) {
-        // Pedir y buscar un elemento en el inventario
+        // Demanar i buscar un element a l'inventari
         cout << "Entra el nom de l'objecte a buscar: ";
         string nom_objecte;
         cin >> nom_objecte;
 
-        // Utilizar la función find para buscar el elemento
+        // Utilitzar la funció find per buscar l'element
         auto it = find(inventari.begin(), inventari.end(), nom_objecte);
 
         if (it != inventari.end()) {
@@ -144,6 +144,6 @@ void buscar_element(const vector<string>& inventari) {
         }
     }
     else {
-        cout << "L'inventari esta buit. No es pot buscar cap element.\n";
+        cout << "L'inventari està buit. No es pot buscar cap element.\n";
     }
 }
